@@ -1,90 +1,59 @@
-
-import React, { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import React from "react";
+import { GradientIcon } from "@/components/ui/visual-elements/GradientIcon";
+import { FloatingElements } from "@/components/ui/visual-elements/FloatingElements";
+import { IllustrativeBackground } from "@/components/ui/visual-elements/IllustrativeBackground";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
-
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
-        scrolled
-          ? "bg-white/95 backdrop-blur-lg shadow-sm"
-          : "bg-transparent"
-      )}
-    >
-      <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo */}
-        <div>
-          <a href="#" className="text-2xl font-extrabold text-gray-900 hover:opacity-80 transition duration-300" aria-label="GrowthSuite - Home">
-            Growth<span className="text-primary">Suite</span>
-          </a>
-        </div>
-        
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-7">
-          <a href="#services" className="text-gray-600 hover:text-primary font-medium transition duration-300">Services</a>
-          <a href="#process" className="text-gray-600 hover:text-primary font-medium transition duration-300">Process</a>
-          <a href="#why-us" className="text-gray-600 hover:text-primary font-medium transition duration-300">Why Us</a>
-          <a href="#results" className="text-gray-600 hover:text-primary font-medium transition duration-300">Results</a>
-        </div>
-        
-        {/* CTA Button */}
-        <div>
-          <a 
-            href="#cta" 
-            className="bg-primary hover:bg-primary/90 text-white font-semibold py-2.5 px-6 rounded-lg transition duration-300 ease-in-out shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm md:text-base"
-          >
-            Get Free Strategy Call
-          </a>
-        </div>
-        
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button 
-            onClick={toggleMobileMenu}
-            className="text-gray-600 hover:text-primary focus:outline-none"
-            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
-        </div>
-      </nav>
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm overflow-hidden">
+      <IllustrativeBackground variant="dots" className="opacity-[0.02]" />
+      <FloatingElements density="low" className="opacity-20" />
       
-      {/* Mobile Navigation Menu */}
-      <div className={`md:hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 invisible'}`}>
-        <div className="bg-white border-t border-gray-100 py-3">
-          <div className="container mx-auto px-6 flex flex-col space-y-4">
-            <a href="#services" className="text-gray-700 hover:text-primary font-medium py-2 transition duration-300" onClick={() => setMobileMenuOpen(false)}>Services</a>
-            <a href="#process" className="text-gray-700 hover:text-primary font-medium py-2 transition duration-300" onClick={() => setMobileMenuOpen(false)}>Process</a>
-            <a href="#why-us" className="text-gray-700 hover:text-primary font-medium py-2 transition duration-300" onClick={() => setMobileMenuOpen(false)}>Why Us</a>
-            <a href="#results" className="text-gray-700 hover:text-primary font-medium py-2 transition duration-300" onClick={() => setMobileMenuOpen(false)}>Results</a>
-            <a href="#faq" className="text-gray-700 hover:text-primary font-medium py-2 transition duration-300" onClick={() => setMobileMenuOpen(false)}>FAQ</a>
-            <a href="#cta" className="bg-primary/10 text-primary font-medium py-3 px-4 rounded-lg text-center hover:bg-primary/20 transition duration-300" onClick={() => setMobileMenuOpen(false)}>Get Free Strategy Call</a>
-          </div>
+      <nav className="container mx-auto px-6 py-4 flex justify-between items-center relative">
+        {/* Logo */}
+        <div className="flex items-center space-x-2">
+          <GradientIcon variant="primary" className="w-8 h-8" />
+          <a href="/" className="text-lg font-semibold text-gray-800">
+            GrowthSuite
+          </a>
         </div>
-      </div>
+
+        {/* Navigation Links */}
+        <div className="hidden md:flex space-x-7">
+          <a href="#problem" className="text-gray-600 hover:text-primary font-medium transition duration-300 relative group">
+            Problem
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+          </a>
+          <a href="#services" className="text-gray-600 hover:text-primary font-medium transition duration-300 relative group">
+            Services
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+          </a>
+          <a href="#benefits" className="text-gray-600 hover:text-primary font-medium transition duration-300 relative group">
+            Benefits
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+          </a>
+          <a href="#how-it-works" className="text-gray-600 hover:text-primary font-medium transition duration-300 relative group">
+            How It Works
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+          </a>
+          <a href="#why-us" className="text-gray-600 hover:text-primary font-medium transition duration-300 relative group">
+            Why Us
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+          </a>
+          <a href="#results" className="text-gray-600 hover:text-primary font-medium transition duration-300 relative group">
+            Results
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+          </a>
+        </div>
+
+        {/* CTA Button */}
+        <a
+          href="#cta"
+          className="hidden md:inline-block bg-primary hover:bg-primary/90 text-white font-semibold py-2.5 px-7 rounded-lg transition duration-300 ease-in-out text-sm shadow-md hover:shadow-lg"
+        >
+          Book a Call
+        </a>
+      </nav>
     </header>
   );
 }
