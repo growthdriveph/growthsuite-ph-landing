@@ -4,10 +4,10 @@ import type { Config } from "tailwindcss";
 export default {
 	darkMode: ["class"],
 	content: [
-		"./pages/**/*.{ts,tsx}",
-		"./components/**/*.{ts,tsx}",
-		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
+		"./pages/**/*.{js,ts,jsx,tsx}",
+		"./components/**/*.{js,ts,jsx,tsx}",
+		"./app/**/*.{js,ts,jsx,tsx}",
+		"./src/**/*.{js,ts,jsx,tsx}",
 	],
 	prefix: "",
 	theme: {
@@ -87,7 +87,7 @@ export default {
 					}
 				},
 				'fade-in': {
-					'0%': {
+					from: {
 						opacity: '0',
 						transform: 'translateY(20px)'
 					},
@@ -96,7 +96,7 @@ export default {
 						transform: 'translateY(0)'
 					}
 				},
-				'fade-out': {
+				'fade-out':{
 					'0%': {
 						opacity: '1',
 						transform: 'translateY(0)'
@@ -106,7 +106,7 @@ export default {
 						transform: 'translateY(20px)'
 					}
 				},
-				'scale-in': {
+				'scale-in':{
 					'0%': {
 						opacity: '0',
 						transform: 'scale(0.95)'
@@ -116,7 +116,7 @@ export default {
 						transform: 'scale(1)'
 					}
 				},
-				'pulse-gentle': {
+				'pulse-gentle':{
 					'0%, 100%': {
 						opacity: '1'
 					},
@@ -126,13 +126,13 @@ export default {
 				}
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.5s ease-out forwards',
-				'fade-out': 'fade-out 0.5s ease-out forwards',
-				'scale-in': 'scale-in 0.3s ease-out',
-				'pulse-gentle': 'pulse-gentle 3s infinite'
-			}
+				'accordion-down': 'accordion-down .2s ease-out',
+				'accordion-up': 'accordion-up .2s ease-out',
+				'fade-in': 'fade-in .5s ease-out forwards',
+				'fade-out': 'fade-out .5s ease-out forwards',
+				'scale-in': 'scale-in .3s ease-out',
+				'pulse-gentle': 'pulse-gentle 3s infinite',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
